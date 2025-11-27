@@ -1,0 +1,18 @@
+<svg width="220" height="56" viewBox="0 0 220 56" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="vrWordmarkGradient" x1="0" y1="0" x2="220" y2="56" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#5BE7FF" />
+      <stop offset="1" stop-color="#4363FF" />
+    </linearGradient>
+    <linearGradient id="vrWordmarkStroke" x1="18" y1="14" x2="58" y2="50" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#FFFFFF" stop-opacity="0.9" />
+      <stop offset="1" stop-color="#C6D4FF" />
+    </linearGradient>
+  </defs>
+  <rect x="0.5" y="0.5" width="63" height="55" rx="16" fill="url(#vrWordmarkGradient)" />
+  <path d="M14 12L27.5 44C31.5 53 34.5 53 38.5 44L52 12" stroke="url(#vrWordmarkStroke)" stroke-width="6" stroke-linecap="round" stroke-linejoin="round" />
+  <path d="M37 31L48 52C50 56 54 56 56 52" stroke="url(#vrWordmarkStroke)" stroke-width="6" stroke-linecap="round" />
+  <text x="78" y="37" font-family="Manrope, 'Space Grotesk', 'Segoe UI', sans-serif" font-size="24" font-weight="700" fill="#F4F6FF">
+    Value<tspan fill="#9AB5FF">Reach</tspan>
+  </text>
+</svg>

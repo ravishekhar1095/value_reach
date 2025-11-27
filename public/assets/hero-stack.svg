@@ -1,0 +1,28 @@
+<svg width="520" height="420" viewBox="0 0 520 420" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="panelGradient" x1="0" y1="0" x2="520" y2="420" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#131A3A" />
+      <stop offset="1" stop-color="#06080F" />
+    </linearGradient>
+    <linearGradient id="cardGradient" x1="40" y1="60" x2="280" y2="260" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#5BE7FF" stop-opacity="0.25" />
+      <stop offset="1" stop-color="#4338FF" stop-opacity="0.1" />
+    </linearGradient>
+  </defs>
+  <rect width="520" height="420" rx="32" fill="url(#panelGradient)" />
+  <rect x="40" y="60" width="240" height="180" rx="20" fill="url(#cardGradient)" stroke="rgba(255,255,255,0.15)" />
+  <rect x="60" y="90" width="90" height="12" rx="6" fill="#FFFFFF" fill-opacity="0.7" />
+  <rect x="60" y="120" width="160" height="8" rx="4" fill="#FFFFFF" fill-opacity="0.4" />
+  <rect x="60" y="140" width="160" height="8" rx="4" fill="#FFFFFF" fill-opacity="0.25" />
+  <rect x="60" y="160" width="120" height="8" rx="4" fill="#FFFFFF" fill-opacity="0.25" />
+  <rect x="300" y="100" width="180" height="220" rx="24" fill="#0F142C" stroke="rgba(255,255,255,0.08)" />
+  <circle cx="390" cy="150" r="40" fill="#5BE7FF" fill-opacity="0.2" stroke="#5BE7FF" stroke-opacity="0.4" />
+  <path d="M360 210H440" stroke="#3B82F6" stroke-width="6" stroke-linecap="round" />
+  <path d="M360 240H420" stroke="#22D3EE" stroke-width="6" stroke-linecap="round" />
+  <path d="M360 270H400" stroke="#F472B6" stroke-width="6" stroke-linecap="round" />
+  <rect x="80" y="280" width="220" height="60" rx="12" fill="#0F142C" stroke="rgba(255,255,255,0.08)" />
+  <path d="M110 310C140 300 200 300 230 310" stroke="#5BE7FF" stroke-width="4" stroke-linecap="round" />
+  <path d="M120 320C150 330 190 330 220 320" stroke="#FBBF24" stroke-width="2" stroke-linecap="round" />
+  <circle cx="120" cy="310" r="4" fill="#5BE7FF" />
+  <circle cx="220" cy="320" r="4" fill="#FBBF24" />
+</svg>
