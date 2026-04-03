@@ -2,10 +2,9 @@ import React, { useState, useEffect } from 'react';
 import { Link, NavLink, useLocation } from 'react-router-dom';
 import ContactModal from './ContactModal';
 
-const LOGO_WORDMARK = '/assets/logo-wordmark.svg';
+const LOGO_IMAGE = '/logo-transparent.png';
 
 function Header() {
-  const [theme, setTheme] = useState(() => localStorage.getItem('theme') || 'dark');
   const [showContact, setShowContact] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
@@ -19,11 +18,6 @@ function Header() {
     { label: 'Developers', to: '/developers' },
     { label: 'Pricing', to: '/pricing' },
   ];
-
-  useEffect(() => {
-    document.body.setAttribute('data-theme', theme);
-    localStorage.setItem('theme', theme);
-  }, [theme]);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -41,7 +35,7 @@ function Header() {
     <>
       <header className={`nav ${isScrolled ? 'scrolled' : ''} ${menuOpen ? 'open' : ''}`}>
         <Link to="/" className="logo" aria-label="Value Reach home">
-          <img src={LOGO_WORDMARK} alt="Value Reach" className="logo-image" />
+          <img src={LOGO_IMAGE} alt="Value Reach" className="logo-image" />
         </Link>
         <button
           className="menu-toggle"
@@ -62,13 +56,6 @@ function Header() {
           ))}
         </nav>
         <div className="nav-actions">
-          <button
-            className="theme-toggle"
-            onClick={() => setTheme(t => (t === 'dark' ? 'light' : 'dark'))}
-            aria-label="Toggle theme"
-          >
-            {theme === 'dark' ? '🌙' : '☀️'}
-          </button>
           <Link to="/contact" className="ghost-link">
             Contact
           </Link>

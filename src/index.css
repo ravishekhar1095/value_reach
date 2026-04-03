@@ -4,16 +4,7 @@
   --font-display: 'Space Grotesk', 'Manrope', system-ui, -apple-system, sans-serif;
   --font-body: 'Manrope', 'Space Grotesk', system-ui, -apple-system, sans-serif;
 
-  /* Theme variables (dark by default) */
-  --bg: #0a0c10;
-  --text: #f0f4f8;
-  --muted: #8b949e;
-  --card-bg: rgba(22, 27, 34, 0.8);
-  --accent: #58a6ff;
-  --border: rgba(240, 246, 252, 0.1);
-}
-
-:root[data-theme='light'], body[data-theme='light'] {
+  /* Theme variables (light only) */
   --bg: #ffffff;
   --text: #1f2328;
   --muted: #656d76;

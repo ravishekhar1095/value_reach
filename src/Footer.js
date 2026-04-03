@@ -1,8 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-const LOGO_WORDMARK = '/assets/logo-wordmark.svg';
-const LOGO_MARK = '/assets/logo-mark.svg';
+const LOGO_IMAGE = '/logo-transparent.png';
 
 const footerMenus = [
   {
@@ -28,57 +27,54 @@ const footerMenus = [
     links: [
       { label: 'Status', to: '/observability' },
       { label: 'Security', to: '/platform' },
+      { label: 'Legal', to: '/legal' },
       { label: 'Careers', to: '/contact' },
+    ],
+  },
+  {
+    title: 'Policies',
+    links: [
+      { label: 'Privacy Policy', to: '/legal/privacy-policy' },
+      { label: 'Cookie Policy', to: '/legal/cookie-policy' },
+      { label: 'Terms of Service', to: '/legal/terms' },
+      { label: 'Acceptable Use', to: '/legal/acceptable-use' },
     ],
   },
 ];
 
 function Footer() {
-  const handleSubscribe = event => {
-    event.preventDefault();
-  };
-
   return (
     <footer className="site-footer">
       <div className="footer-top">
-        <div className="footer-cta">
-          <p className="eyebrow">Ready when you are</p>
-          <h3>Let’s connect your next journey.</h3>
-          <p>We’ll review your routes, map rollout plans, and pair you with a success architect.</p>
+        <div className="footer-brand">
+          <img src={LOGO_IMAGE} alt="Value Reach" className="logo-image" />
+          <p className="footer-tagline">Enterprise communications infrastructure, designed for clarity and scale.</p>
+          <p className="footer-description">
+            Messaging, voice, verification, automation, and observability from one unified platform.
+          </p>
         </div>
-        <form className="footer-newsletter" onSubmit={handleSubscribe}>
-          <label htmlFor="newsletter">Subscribe for launch notes</label>
-          <div className="newsletter-input">
-            <input id="newsletter" type="email" placeholder="you@company.com" required />
-            <button type="submit" className="btn-primary small">Join</button>
-          </div>
-          <span>Monthly digest. No spam.</span>
-        </form>
+        <div className="footer-content">
+          {footerMenus.map(menu => (
+            <div className="footer-links-col" key={menu.title}>
+              <h4>{menu.title}</h4>
+              {menu.links.map(link => (
+                <Link key={link.label} to={link.to}>
+                  {link.label}
+                </Link>
+              ))}
+            </div>
+          ))}
+        </div>
       </div>
 
-      <div className="footer-content">
-        <div className="footer-brand">
-          <img src={LOGO_WORDMARK} alt="Value Reach" className="logo-image" />
-          <p>The enterprise CPaaS for global scale.</p>
-          <div className="social-links">
-            <a href="#" aria-label="Twitter">𝕏</a>
-            <a href="#" aria-label="LinkedIn">in</a>
-            <a href="#" aria-label="GitHub">git</a>
-          </div>
-        </div>
-        {footerMenus.map(menu => (
-          <div className="footer-links-col" key={menu.title}>
-            <h4>{menu.title}</h4>
-            {menu.links.map(link => (
-              <Link key={link.label} to={link.to}>
-                {link.label}
-              </Link>
-            ))}
-          </div>
-        ))}
-      </div>
       <div className="footer-bottom">
         <p>© {new Date().getFullYear()} Value Reach Inc. All rights reserved.</p>
+        <div className="footer-legal-links">
+          <Link to="/legal">Legal</Link>
+          <Link to="/legal/privacy-policy">Privacy</Link>
+          <Link to="/legal/cookie-policy">Cookies</Link>
+          <Link to="/legal/terms">Terms</Link>
+        </div>
       </div>
     </footer>
   );

@@ -14,6 +14,12 @@ import ObservabilityPage from './ObservabilityPage';
 import ContactPage from './ContactPage';
 import DevelopersPage from './DevelopersPage';
 import PricingPage from './PricingPage';
+import LegalHubPage from './LegalHubPage';
+import PrivacyPolicyPage from './PrivacyPolicyPage';
+import CookiePolicyPage from './CookiePolicyPage';
+import TermsPage from './TermsPage';
+import AcceptableUsePage from './AcceptableUsePage';
+import CompliancePage from './CompliancePage';
 
 function App() {
   const theme = createTheme({
@@ -44,6 +50,12 @@ function App() {
               <Route path="/contact" element={<ContactPage />} />
               <Route path="/developers" element={<DevelopersPage />} />
               <Route path="/pricing" element={<PricingPage />} />
+              <Route path="/legal" element={<LegalHubPage />} />
+              <Route path="/legal/privacy-policy" element={<PrivacyPolicyPage />} />
+              <Route path="/legal/cookie-policy" element={<CookiePolicyPage />} />
+              <Route path="/legal/terms" element={<TermsPage />} />
+              <Route path="/legal/acceptable-use" element={<AcceptableUsePage />} />
+              <Route path="/legal/compliance" element={<CompliancePage />} />
             </Routes>
           </main>
           <Footer />
