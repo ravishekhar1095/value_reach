@@ -3,7 +3,7 @@ import { Link, useLocation } from 'react-router-dom';
 import ContactModal from './ContactModal';
 import ChannelBrandLogo, { channelBrands } from './ChannelBranding';
 
-const LOGO_IMAGE = '/logo-transparent.png';
+const LOGO_IMAGE = `${(process.env.PUBLIC_URL || '').replace(/\/$/, '')}/logo-transparent.png`;
 
 const menuGroups = {
   products: {

@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-const LOGO_IMAGE = '/logo-transparent.png';
+const LOGO_IMAGE = `${(process.env.PUBLIC_URL || '').replace(/\/$/, '')}/logo-transparent.png`;
 
 const footerMenus = [
   {
