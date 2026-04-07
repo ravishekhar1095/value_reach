@@ -86,8 +86,9 @@ function HomePage() {
           <div className="hero-content-left">
             <div className="badge-pill">🚀 The Future of CPaaS</div>
             <h1 className="hero-title">
-              Connect Globally, <br />
-              <span className="gradient-text">Communicate Instantly.</span>
+              <span className="home-text-reach">Reach</span> <br />
+              <span className="home-text-connect">Connect</span>
+              <br /><span className="home-text-interact">Interact</span>
             </h1>
             <p className="hero-subtitle">
               Orchestrate SMS, WhatsApp, Voice, and Email journeys with a single, powerful API.

@@ -60,7 +60,7 @@ function Header() {
             Contact
           </Link>
           <button className="btn-primary small" onClick={() => setShowContact(true)}>
-            Book Demo
+            Request a Demo
           </button>
         </div>
       </header>

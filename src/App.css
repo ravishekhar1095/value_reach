@@ -13,6 +13,27 @@
   background-clip: text;
 }
 
+.home-text-reach {
+  background: linear-gradient(135deg, #5be7ff, #3b82f6);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.home-text-connect {
+  background: linear-gradient(135deg, #c084fc, #ec4899);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.home-text-interact {
+  background: linear-gradient(135deg, #fbbf24, #ea580c);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
 /* Hero Section */
 .hero-section {
   padding: 120px 5vw 80px;
@@ -1475,6 +1496,14 @@
 .glow-card p,
 .plan-descriptor {
   color: #475569;
+}
+
+.pill,
+.badge-pill,
+.trust-pill {
+  background: rgba(15, 23, 42, 0.05);
+  color: #0f172a;
+  border-color: rgba(15, 23, 42, 0.08); /* Only affects pills that have borders like trust-pill */
 }
 
 .hero-stack-panel {
