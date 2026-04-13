@@ -1,9 +1,11 @@
 import React, { useState, useEffect } from 'react';
 import { useInView } from 'react-intersection-observer';
+import { motion } from 'framer-motion';
 import ContactModal from './ContactModal';
 import ChannelBrandLogo from './ChannelBranding';
 import TestimonialCarousel from './components/ui/profile-card-testimonial-carousel';
 import { GlobeCdn } from './components/ui/cobe-globe-cdn';
+import SparksCarousel from './components/ui/sparks-carousel';
 
 const useCountUp = (end, duration = 1500) => {
   const [count, setCount] = useState(0);
@@ -29,6 +31,22 @@ const useCountUp = (end, duration = 1500) => {
   return { ref, count };
 };
 
+function ScrollReveal({ children, className = '', delay = 0, threshold = 0.18 }) {
+  const { ref, inView } = useInView({ triggerOnce: true, threshold });
+
+  return (
+    <motion.section
+      ref={ref}
+      className={`${className} scroll-reveal`}
+      initial={{ opacity: 0, y: 26, filter: 'blur(4px)' }}
+      animate={inView ? { opacity: 1, y: 0, filter: 'blur(0px)' } : { opacity: 0, y: 26, filter: 'blur(4px)' }}
+      transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1], delay }}
+    >
+      {children}
+    </motion.section>
+  );
+}
+
 function HomePage() {
   const [showContact, setShowContact] = useState(false);
   const heroHighlights = ['Carrier failover', 'AI-assisted routing', 'Audit-ready logs'];
@@ -37,13 +55,55 @@ function HomePage() {
     { value: '4.9/5', label: 'Average satisfaction on G2', caption: 'Based on verified buyers' },
     { value: '35%', label: 'Average cost savings year one', caption: 'Consolidated tooling' },
   ];
-  const customerLogos = [
-    { name: 'MercuryPay', industry: 'Fintech', metric: '−32% CAC', summary: 'Smarter OTP and onboarding journeys.', accent: 'var(--accent)' },
-    { name: 'OrbitX', industry: 'Logistics', metric: '3x faster onboarding', summary: 'Fewer handoffs across customer touchpoints.', accent: '#22c55e' },
-    { name: 'Helios Bank', industry: 'Financial Services', metric: '99.995% uptime', summary: 'Reliable alerts across critical service flows.', accent: '#f97316' },
-    { name: 'Latitude Air', industry: 'Aviation', metric: '+48 NPS', summary: 'Travel updates that feel responsive and calm.', accent: '#8b5cf6' },
-    { name: 'Northwind', industry: 'Retail', metric: 'Unified 6 channels', summary: 'One view across SMS, WhatsApp, RCS, email, and voice.', accent: '#ec4899' },
-    { name: 'Nova Mobile', industry: 'Telecom', metric: 'Millions of users', summary: 'Scaled customer notifications without friction.', accent: '#06b6d4' },
+  const customerSparks = [
+    {
+      id: 'mercurypay',
+      imageSrc:
+        'https://images.unsplash.com/photo-1556742031-c6961e8560b0?auto=format&fit=crop&w=900&q=80',
+      title: 'MercuryPay - smarter OTP and onboarding journeys',
+      count: 32,
+      countLabel: '% CAC reduction',
+    },
+    {
+      id: 'orbitx',
+      imageSrc:
+        'https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&w=900&q=80',
+      title: 'OrbitX - fewer handoffs across customer touchpoints',
+      count: 3,
+      countLabel: 'x faster onboarding',
+    },
+    {
+      id: 'helios-bank',
+      imageSrc:
+        'https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=900&q=80',
+      title: 'Helios Bank - reliable alerts across critical service flows',
+      count: 99.995,
+      countLabel: '% uptime',
+    },
+    {
+      id: 'latitude-air',
+      imageSrc:
+        'https://images.unsplash.com/photo-1503376780353-7e6692767b70?auto=format&fit=crop&w=900&q=80',
+      title: 'Latitude Air - travel updates that feel responsive and calm',
+      count: 48,
+      countLabel: 'NPS',
+    },
+    {
+      id: 'northwind',
+      imageSrc:
+        'https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fit=crop&w=900&q=80',
+      title: 'Northwind - one view across SMS, WhatsApp, RCS, email, and voice',
+      count: 6,
+      countLabel: 'channels unified',
+    },
+    {
+      id: 'nova-mobile',
+      imageSrc:
+        'https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?auto=format&fit=crop&w=900&q=80',
+      title: 'Nova Mobile - scaled customer notifications without friction',
+      count: 12,
+      countLabel: 'M users served',
+    },
   ];
   const capabilityTiles = [
     {
@@ -148,7 +208,7 @@ function HomePage() {
         </div>
       </section>
 
-      <section className="trusted-section">
+      <ScrollReveal className="trusted-section" delay={0.05}>
         <div className="trusted-top">
           <div className="trusted-intro">
             <p className="eyebrow">Trusted by Innovative Teams Worldwide</p>
@@ -174,65 +234,18 @@ function HomePage() {
               ))}
             </div>
           </div>
-          <div className="case-study-card">
-            <div className="case-study-header">
-              <img src={`${process.env.PUBLIC_URL || ''}/assets/testimonial-aaliyah.png`} alt="Aaliyah Bose" className="testimonial-avatar" />
-              <div className="case-study-meta-top">
-                <span className="case-study-badge">Case Study · Helios Bank</span>
-                <div className="quote-meta">
-                  <strong>Aaliyah Bose</strong>
-                  <span>VP Customer Engagement</span>
-                </div>
-              </div>
-            </div>
-            <p className="case-study-quote">
-              “Within weeks we unified SMS, WhatsApp, and push on one API. Delivery got faster, reporting went live, and our CAC
-              dropped double digits.”
-            </p>
-            <div className="case-study-metrics">
-              <div>
-                <strong>28%</strong>
-                <span>Lower operating cost</span>
-              </div>
-              <div>
-                <strong>3x</strong>
-                <span>Faster launch cadence</span>
-              </div>
-            </div>
-          </div>
         </div>
 
         <div className="trust-ecosystem">
-          <div className="trust-ecosystem-head">
-            <p className="eyebrow">Customer outcomes</p>
-            <h3>Proof that the platform is built to compound results.</h3>
-            <p className="subtitle">
-              These snapshots show how customers use the platform to cut costs, improve reliability, and simplify operations.
-            </p>
-          </div>
-
-          <div className="customer-story-grid">
-            {customerLogos.map((logo, index) => (
-              <article
-                key={logo.name}
-                className={`customer-story-card ${index === 0 ? 'featured' : ''}`}
-                style={{ '--card-accent': logo.accent }}
-              >
-                <div className="customer-story-top">
-                  <div>
-                    <p className="logo-name">{logo.name}</p>
-                    <span className="logo-industry">{logo.industry}</span>
-                  </div>
-                  <span className="logo-metric">{logo.metric}</span>
-                </div>
-                <p className="customer-story-summary">{logo.summary}</p>
-              </article>
-            ))}
-          </div>
+          <SparksCarousel
+            title="Proof that the platform is built to compound results."
+            subtitle="These snapshots show how customers use the platform to cut costs, improve reliability, and simplify operations."
+            items={customerSparks}
+          />
         </div>
-      </section>
+      </ScrollReveal>
 
-      <section className="features-bento">
+      <ScrollReveal className="features-bento" delay={0.08}>
         <div className="feature-hero-card">
           <div>
             <p className="eyebrow">Scale with Confidence</p>
@@ -285,9 +298,9 @@ function HomePage() {
             </div>
           ))}
         </div>
-      </section>
+      </ScrollReveal>
 
-      <section className="testimonial-section">
+      <ScrollReveal className="testimonial-section" delay={0.1}>
         <div className="testimonial-section-head">
           <p className="eyebrow">Customer voices</p>
           <h2>Teams across India trust the platform to keep comms steady.</h2>
@@ -296,9 +309,9 @@ function HomePage() {
           </p>
         </div>
         <TestimonialCarousel />
-      </section>
+      </ScrollReveal>
 
-      <section className="cta-section">
+      <ScrollReveal className="cta-section" delay={0.12}>
         <div className="cta-card">
           <h2>Ready to transform your communication?</h2>
           <p>Join thousands of developers building the future of engagement.</p>
@@ -306,7 +319,7 @@ function HomePage() {
             Get Started Now
           </button>
         </div>
-      </section>
+      </ScrollReveal>
 
       {showContact && <ContactModal onClose={() => setShowContact(false)} />}
     </div>

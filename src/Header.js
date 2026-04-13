@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react';
-import { Link, NavLink, useLocation } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 import ContactModal from './ContactModal';
 import ChannelBrandLogo, { channelBrands } from './ChannelBranding';
 
@@ -199,16 +199,10 @@ function Header() {
         <nav className={`nav-links ${menuOpen ? 'open' : ''}`}>
           <div className="nav-links-desktop">
             {Object.entries(menuGroups).map(([key, menu]) => renderDropdown(key, menu))}
-            <NavLink to="/whats-new" className={({ isActive }) => `nav-link ${isActive ? 'active' : ''}`}>
-              What's New
-            </NavLink>
           </div>
 
           <div className="nav-links-mobile">
             {Object.entries(menuGroups).map(([key, menu]) => renderDropdown(key, menu))}
-            <NavLink to="/whats-new" className={({ isActive }) => `nav-link ${isActive ? 'active' : ''}`}>
-              What's New
-            </NavLink>
           </div>
         </nav>
         <div className="nav-actions">
