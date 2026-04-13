@@ -48,9 +48,9 @@ function Footer() {
       <div className="footer-top">
         <div className="footer-brand">
           <img src={LOGO_IMAGE} alt="Value Reach" className="logo-image" />
-          <p className="footer-tagline">Enterprise communications infrastructure, designed for clarity and scale.</p>
+          <p className="footer-tagline">Tier-1 CPaaS Infrastructure for Global Bulk Messaging.</p>
           <p className="footer-description">
-            Messaging, voice, verification, automation, and observability from one unified platform.
+            Direct carrier routes for Bulk SMS, WhatsApp Business, Voice, and RCS. Move millions of messages with unmatched reliability.
           </p>
         </div>
         <div className="footer-content">

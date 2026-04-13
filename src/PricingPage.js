@@ -1,4 +1,5 @@
 import React from 'react';
+import PageHeroVisual from './PageHeroVisual';
 
 const plans = [
   {
@@ -38,14 +39,23 @@ const guarantees = [
 function PricingPage() {
   return (
     <div className="page-content pricing-page">
-      <section className="page-hero">
-        <p className="eyebrow">Predictable economics</p>
-        <h1>Only pay for the traffic you trust us with.</h1>
-        <p>Start testing for free, then graduate to committed usage discounts. Enterprise teams get bespoke routing, SLAs, and governance.</p>
-        <div className="page-hero-actions">
-          <button className="btn-primary">Talk to sales</button>
-          <button className="btn-secondary">Download rate card</button>
+      <section className="page-hero page-hero-split">
+        <div className="page-hero-copy">
+          <p className="eyebrow">Predictable economics</p>
+          <h1>Only pay for the traffic you trust us with.</h1>
+          <p>Start testing for free, then graduate to committed usage discounts. Enterprise teams get bespoke routing, SLAs, and governance.</p>
+          <div className="page-hero-actions">
+            <button className="btn-primary">Talk to sales</button>
+            <button className="btn-secondary">Download rate card</button>
+          </div>
         </div>
+        <PageHeroVisual
+          image="/assets/hero.png"
+          alt="Pricing plans illustration"
+          badge="Flexible pricing"
+          statA={{ value: 'Free', label: 'builder tier' }}
+          statB={{ value: 'Custom', label: 'enterprise rates' }}
+        />
       </section>
 
       <section className="pricing-grid">

@@ -1,63 +1,64 @@
 import React, { useState } from 'react';
 import ContactModal from './ContactModal';
+import PageHeroVisual from './PageHeroVisual';
 
 const platformStats = [
   { value: '10B+', label: 'messages / month' },
   { value: '700+', label: 'direct carrier links' },
-  { value: '99.99%', label: 'uptime SLA' },
+  { value: 'Tier-1', label: 'network status' },
 ];
 
-const apiChannels = ['SMS', 'WhatsApp', 'Voice', 'RCS', 'Email', 'Push'];
+const apiChannels = ['Bulk SMS', 'WhatsApp', 'Voice', 'RCS', 'Email', 'Viber'];
 
 const platformModules = [
   {
-    label: 'Journeys',
-    title: 'Visual orchestration canvas',
-    description: 'Drag, drop, and branch across channels with approvals, localization, and throttling baked in.',
-    bullets: ['Omnichannel rules & quiet hours', 'Maker-checker governance', 'Reusable kits & journeys'],
+    label: 'Connectivity',
+    title: 'Tier-1 Global Gateway',
+    description: 'Bypass aggregators with direct carrier-grade connectivity that ensures zero-hop delivery and lowest latency.',
+    bullets: ['700+ direct carrier binds', 'Local termination in 190+ countries', 'Custom TPS throttling control'],
   },
   {
-    label: 'Intelligence',
-    title: 'Predictive engagement & AI content',
-    description: 'Smart channel selection, AI copy testing, and anomaly detection that continuously optimizes performance.',
-    bullets: ['Intent-aware fallbacks', 'Copy studio with guardrails', 'Fraud & spam controls'],
+    label: 'Throughput',
+    title: 'Engineered for Bulk Scale',
+    description: 'Our cloud-native gateway handles massive bursts and promotional spikes without dropping a single frame.',
+    bullets: ['Elastic capacity scaling', 'Multi-region delivery nodes', 'Intelligent traffic balancing'],
   },
   {
-    label: 'Platform',
-    title: 'Unified API + SDK layer',
-    description: 'Consistent REST + Webhook contracts, sandbox environments, and typed SDKs for every stack.',
-    bullets: ['OpenAPI 3.0 spec', 'Webhooks with signatures', 'CLI & Terraform providers'],
+    label: 'API',
+    title: 'Programmable Bulk Core',
+    description: 'One REST payload for millions of messages. Simple, robust, and documented for rapid high-volume integration.',
+    bullets: ['OpenAPI 3.0 specs', 'Webhooks with HMAC signing', 'Sandbox testing environments'],
   },
   {
-    label: 'Observability',
-    title: 'Full-stack telemetry',
-    description: 'Delivery, latency, spend, and anomaly dashboards with long-term retention and exports.',
-    bullets: ['Live DLR heatmaps', 'Noise-tuned alerting', 'Snowflake/Redshift streaming'],
+    label: 'Trust',
+    title: 'Governance & Compliance',
+    description: 'Navigating DLT, 10DLC, and GDPR is built into our core, so your bulk campaigns stay safe and deliverable.',
+    bullets: ['Managed sender registration', 'Automated opt-out handling', 'ISO 27001 & SOC2 infrastructure'],
   },
 ];
 
 const reliabilityHighlights = [
   {
-    title: 'Global mesh network',
-    description: '65+ direct carrier partnerships, smart routing, and sub-second failover to keep messages flowing.',
+    title: 'Direct carrier backbone',
+    description: 'We operate our own Tier-1 infrastructure, giving you full control over routing, quality, and cost at scale.',
     metrics: [
-      { label: 'Active routes', value: '2,400+' },
-      { label: 'Edge POPs', value: '18' },
+      { label: 'Direct routes', value: '700+' },
+      { label: 'Network POPs', value: '18' },
     ],
   },
   {
-    title: 'Security & compliance',
-    description: 'Zero-trust architecture with encryption everywhere, fine-grained roles, and audit-ready logging.',
+    title: 'Bulk security suite',
+    description: 'Advanced fraud protection and heuristic-based pumping filters protect your high-volume budget daily.',
     metrics: [
-      { label: 'Certifications', value: 'SOC 2 · ISO 27001 · GDPR · HIPAA' },
+      { label: 'Compliance', value: 'DLT · GDPR · HIPAA' },
     ],
   },
 ];
 
 const capabilityHighlights = [
-  { title: 'Smart retries & cost controls', description: 'ML-powered retries learn from geography, price, and carrier behavior to hit SLA and budget targets.' },
-  { title: 'Dedicated onboarding pods', description: 'Sender verification, number porting, and routing audits handled by a squad that ships in weeks—not months.' },
-  { title: 'Lifecycle automation', description: 'Event-driven APIs trigger the next-best action while respecting regional consent and quiet hour policies.' },
+  { title: 'Dynamic route optimization', description: 'ML-powered pathfinding constantly switches to the most stable and cost-effective route for every bulk send.' },
+  { title: 'Global 10DLC & Shortcodes', description: 'Immediate provisioning of dedicated long codes, shortcodes, and toll-free numbers across all major regions.' },
+  { title: 'Lifecycle bulk automation', description: 'Trigger massive-scale event-driven campaigns while respecting regional quiet hours and consent policies.' },
 ];
 
 const codeSnippet = `POST https://api.valuereach.com/v1/messages
@@ -75,19 +76,28 @@ function PlatformPage() {
   return (
     <>
       <div className="page-content platform-page">
-        <section className="page-hero">
-          <p className="eyebrow">Unified CPaaS Platform</p>
-          <h1>All channels, intelligence, and observability in one stack.</h1>
-          <p>
-            Replace fragmented vendors with a single API, orchestration canvas, and telemetry layer. Design journeys, ship smarter campaigns, and trust the infrastructure that
-            already moves billions of messages every month.
-          </p>
-          <div className="page-hero-actions">
-            <button className="btn-primary" onClick={() => setShowContact(true)}>
-              See platform demo
-            </button>
-            <button className="btn-secondary">Explore API reference</button>
+        <section className="page-hero page-hero-split">
+          <div className="page-hero-copy">
+            <p className="eyebrow">Unified CPaaS Platform</p>
+            <h1>All channels, intelligence, and observability in one stack.</h1>
+            <p>
+              Replace fragmented vendors with a single API, orchestration canvas, and telemetry layer. Design journeys, ship smarter campaigns, and trust the infrastructure that
+              already moves billions of messages every month.
+            </p>
+            <div className="page-hero-actions">
+              <button className="btn-primary" onClick={() => setShowContact(true)}>
+                See platform demo
+              </button>
+              <button className="btn-secondary">Explore API reference</button>
+            </div>
           </div>
+          <PageHeroVisual
+            image="/assets/hero.png"
+            alt="Platform dashboard illustration"
+            badge="Platform overview"
+            statA={{ value: '10B+', label: 'messages / month' }}
+            statB={{ value: '99.99%', label: 'uptime SLA' }}
+          />
         </section>
 
         <section className="stat-grid">

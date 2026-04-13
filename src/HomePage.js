@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import { useInView } from 'react-intersection-observer';
 import ContactModal from './ContactModal';
+import ChannelBrandLogo from './ChannelBranding';
+import { GlobeWeather } from './components/ui/cobe-globe-weather';
 
 const useCountUp = (end, duration = 1500) => {
   const [count, setCount] = useState(0);
@@ -28,18 +30,25 @@ const useCountUp = (end, duration = 1500) => {
 
 function HomePage() {
   const [showContact, setShowContact] = useState(false);
+  const heroHighlights = ['Carrier failover', 'AI-assisted routing', 'Audit-ready logs'];
+  const heroSignals = [
+    { value: '190+', label: 'Countries live' },
+    { value: '700+', label: 'Carrier routes' },
+    { value: '24/7', label: 'NOC coverage' },
+    { value: '99.99%', label: 'Routing SLA' },
+  ];
   const trustStats = [
     { value: '12K+', label: 'Teams orchestrating journeys', caption: 'Across 90+ countries' },
     { value: '4.9/5', label: 'Average satisfaction on G2', caption: 'Based on verified buyers' },
     { value: '35%', label: 'Average cost savings year one', caption: 'Consolidated tooling' },
   ];
   const customerLogos = [
-    { name: 'MercuryPay', industry: 'Fintech', metric: '−32% CAC' },
-    { name: 'OrbitX', industry: 'Logistics', metric: '3x faster onboarding' },
-    { name: 'Helios Bank', industry: 'Financial Services', metric: '99.995% uptime' },
-    { name: 'Latitude Air', industry: 'Aviation', metric: '+48 NPS' },
-    { name: 'Northwind', industry: 'Retail', metric: 'Unified 6 channels' },
-    { name: 'Nova Mobile', industry: 'Telecom', metric: 'Millions of users' },
+    { name: 'MercuryPay', industry: 'Fintech', metric: '−32% CAC', summary: 'Smarter OTP and onboarding journeys.', accent: 'var(--accent)' },
+    { name: 'OrbitX', industry: 'Logistics', metric: '3x faster onboarding', summary: 'Fewer handoffs across customer touchpoints.', accent: '#22c55e' },
+    { name: 'Helios Bank', industry: 'Financial Services', metric: '99.995% uptime', summary: 'Reliable alerts across critical service flows.', accent: '#f97316' },
+    { name: 'Latitude Air', industry: 'Aviation', metric: '+48 NPS', summary: 'Travel updates that feel responsive and calm.', accent: '#8b5cf6' },
+    { name: 'Northwind', industry: 'Retail', metric: 'Unified 6 channels', summary: 'One view across SMS, WhatsApp, RCS, email, and voice.', accent: '#ec4899' },
+    { name: 'Nova Mobile', industry: 'Telecom', metric: 'Millions of users', summary: 'Scaled customer notifications without friction.', accent: '#06b6d4' },
   ];
   const capabilityTiles = [
     {
@@ -78,21 +87,30 @@ function HomePage() {
       label: 'Uptime SLA',
     },
   ];
+  const channelSurfaces = [
+    { key: 'whatsapp', label: 'WhatsApp' },
+    { key: 'sms', label: 'SMS' },
+    { key: 'rcs', label: 'RCS' },
+    { key: 'email', label: 'Email' },
+    { key: 'voice', label: 'Voice' },
+  ];
 
   return (
-    <>
+    <div className="home-page-light">
       <section className="hero-section">
         <div className="hero-container">
           <div className="hero-content-left">
-            <div className="badge-pill">🚀 The Future of CPaaS</div>
+            <div className="badge-pill hero-eyebrow">🚀 The Future of CPaaS</div>
             <h1 className="hero-title">
-              <span className="home-text-reach">Reach</span> <br />
-              <span className="home-text-connect">Connect</span>
-              <br /><span className="home-text-interact">Interact</span>
+              One control plane for
+              <br />
+              <span className="home-text-reach">Reach</span>{' '}
+              <span className="home-text-connect">Connect</span>{' '}
+              <span className="home-text-interact">Interact</span>
             </h1>
             <p className="hero-subtitle">
-              Orchestrate SMS, WhatsApp, Voice, and Email journeys with a single, powerful API.
-              Enterprise-grade reliability meets next-gen intelligence.
+              Orchestrate SMS, WhatsApp, Voice, Email, and RCS from a single, intelligent API.
+              Built for teams that want scale, clarity, and a calmer operating model.
             </p>
             <div className="hero-cta-group">
               <button className="btn-primary" onClick={() => setShowContact(true)}>
@@ -100,6 +118,11 @@ function HomePage() {
               </button>
               <button className="btn-secondary">View Documentation</button>
             </div>
+            <ul className="hero-feature-list">
+              {heroHighlights.map((item) => (
+                <li key={item}>{item}</li>
+              ))}
+            </ul>
             <div className="hero-stats-row">
               <div className="hero-stat">
                 <strong>99.99%</strong>
@@ -116,15 +139,17 @@ function HomePage() {
             </div>
           </div>
           <div className="hero-visual-right">
-            <div className="hero-stack-panel">
-              <div className="hero-stack-cone">
-                <img src="/assets/hero.png" alt="Global Connectivity" />
+            <div className="hero-stack-panel hero-globe-panel">
+              <div className="hero-panel-chip">Global command view</div>
+              <GlobeWeather className="hero-globe" />
+              <div className="hero-data-grid">
+                {heroSignals.map((signal) => (
+                  <div key={signal.label} className="hero-data-card">
+                    <strong>{signal.value}</strong>
+                    <span>{signal.label}</span>
+                  </div>
+                ))}
               </div>
-              <div className="hero-stack-caption">
-                <h4>Live traffic overview</h4>
-                <p>Routing via 700+ carrier links across 190+ countries.</p>
-              </div>
-              <div className="hero-stack-orb">99.99%</div>
             </div>
             <div className="floating-card card-1">
               <span>Message Sent</span>
@@ -142,9 +167,10 @@ function HomePage() {
         <div className="trusted-top">
           <div className="trusted-intro">
             <p className="eyebrow">Trusted by Innovative Teams Worldwide</p>
-            <h2 className="gradient-text">Leading brands rely on our secure, high-performance CPaaS for global reach.</h2>
+            <h2 className="gradient-text">Leading brands rely on a calmer, faster way to operate global messaging.</h2>
             <p className="subtitle">
-              Layer reliable delivery with compliance-grade guardrails and get total visibility into every interaction.
+              Layer reliable delivery with compliance-grade guardrails and get total visibility into every interaction, from send to
+              resolution.
             </p>
             <div className="trust-pill-row">
               {['ISO 27001', 'SOC 2 Type II', 'GDPR Ready', 'HIPAA Controls'].map((badge) => (
@@ -164,15 +190,20 @@ function HomePage() {
             </div>
           </div>
           <div className="case-study-card">
-            <span className="case-study-badge">Case Study · Helios Bank</span>
-            <p className="case-study-quote">
-              “Within weeks we unified SMS, WhatsApp, and push on one API. Delivery is faster, reporting is live, and our CAC dropped
-              double digits.”
-            </p>
-            <div className="quote-meta">
-              <strong>Aaliyah Bose</strong>
-              <span>VP Customer Engagement</span>
+            <div className="case-study-header">
+              <img src={`${process.env.PUBLIC_URL || ''}/assets/testimonial-aaliyah.png`} alt="Aaliyah Bose" className="testimonial-avatar" />
+              <div className="case-study-meta-top">
+                <span className="case-study-badge">Case Study · Helios Bank</span>
+                <div className="quote-meta">
+                  <strong>Aaliyah Bose</strong>
+                  <span>VP Customer Engagement</span>
+                </div>
+              </div>
             </div>
+            <p className="case-study-quote">
+              “Within weeks we unified SMS, WhatsApp, and push on one API. Delivery got faster, reporting went live, and our CAC
+              dropped double digits.”
+            </p>
             <div className="case-study-metrics">
               <div>
                 <strong>28%</strong>
@@ -187,15 +218,32 @@ function HomePage() {
         </div>
 
         <div className="trust-ecosystem">
-          {customerLogos.map((logo) => (
-            <div key={logo.name} className="logo-card">
-              <div>
-                <p className="logo-name">{logo.name}</p>
-                <span className="logo-industry">{logo.industry}</span>
-              </div>
-              <span className="logo-metric">{logo.metric}</span>
-            </div>
-          ))}
+          <div className="trust-ecosystem-head">
+            <p className="eyebrow">Customer outcomes</p>
+            <h3>Proof that the platform is built to compound results.</h3>
+            <p className="subtitle">
+              These snapshots show how customers use the platform to cut costs, improve reliability, and simplify operations.
+            </p>
+          </div>
+
+          <div className="customer-story-grid">
+            {customerLogos.map((logo, index) => (
+              <article
+                key={logo.name}
+                className={`customer-story-card ${index === 0 ? 'featured' : ''}`}
+                style={{ '--card-accent': logo.accent }}
+              >
+                <div className="customer-story-top">
+                  <div>
+                    <p className="logo-name">{logo.name}</p>
+                    <span className="logo-industry">{logo.industry}</span>
+                  </div>
+                  <span className="logo-metric">{logo.metric}</span>
+                </div>
+                <p className="customer-story-summary">{logo.summary}</p>
+              </article>
+            ))}
+          </div>
         </div>
       </section>
 
@@ -209,9 +257,10 @@ function HomePage() {
               journeys, secure every touchpoint, and observe real-time impact from one mission control.
             </p>
             <div className="channel-chip-row">
-              {['SMS', 'WhatsApp', 'Voice', 'Email', 'Push'].map((channel) => (
-                <span key={channel} className="channel-chip">
-                  {channel}
+              {channelSurfaces.map((channel) => (
+                <span key={channel.label} className="channel-chip channel-chip-logo">
+                  <ChannelBrandLogo brandKey={channel.key} size={18} className="channel-chip-icon" />
+                  <span>{channel.label}</span>
                 </span>
               ))}
             </div>
@@ -253,6 +302,46 @@ function HomePage() {
         </div>
       </section>
 
+      <section className="reliability-human-section">
+        <div className="reliability-container">
+          <div className="reliability-visual">
+            <img src={`${process.env.PUBLIC_URL || ''}/assets/noc-team.png`} alt="ValueReach NOC Team" className="noc-image" />
+            <div className="reliability-overlay-card">
+              <div className="status-pulse"></div>
+              <span>Global NOC: Active</span>
+            </div>
+          </div>
+          <div className="reliability-content">
+            <p className="eyebrow">Human-Centric Reliability</p>
+            <h2>Always-on expertise for your global scale.</h2>
+            <p>
+              Technology is only as good as the people behind it. Our Network Operations Center (NOC) is staffed 24/7/365 by routing experts who proactively monitor carrier performance and optimize paths in real-time.
+            </p>
+            <ul className="reliability-list">
+              <li>
+                <strong>Proactive Mitigation:</strong> We detect and route around outages before they impact your users.
+              </li>
+              <li>
+                <strong>Direct Carrier Relations:</strong> No middle-men. We talk directly to telcos across 190+ countries.
+              </li>
+              <li>
+                <strong>Enterprise Concierge:</strong> Every customer gets a dedicated support channel with sub-minute responses.
+              </li>
+            </ul>
+            <div className="reliability-stats">
+              <div className="rel-stat">
+                <strong>&lt;15m</strong>
+                <span>Avg. Response Time</span>
+              </div>
+              <div className="rel-stat">
+                <strong>98.4%</strong>
+                <span>Direct Routing</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
       <section className="cta-section">
         <div className="cta-card">
           <h2>Ready to transform your communication?</h2>
@@ -264,7 +353,7 @@ function HomePage() {
       </section>
 
       {showContact && <ContactModal onClose={() => setShowContact(false)} />}
-    </>
+    </div>
   );
 }
 

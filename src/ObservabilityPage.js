@@ -1,4 +1,5 @@
 import React from 'react';
+import PageHeroVisual from './PageHeroVisual';
 
 const observabilityLayers = [
   { title: 'Signals', description: 'Ingest delivery receipts, carrier replies, errors, and spend in seconds.', tag: 'Ingest' },
@@ -21,10 +22,19 @@ const observabilityStats = [
 function ObservabilityPage() {
   return (
     <div className="page-content observability-page">
-      <section className="page-hero">
-        <p className="eyebrow">Observability</p>
-        <h1>Every message traced, alertable, and export-ready.</h1>
-        <p>See message health like a NOC: delivery rates by operator, error taxonomies, fraud signals, and SLA dashboards that mirror your runbooks.</p>
+      <section className="page-hero page-hero-split">
+        <div className="page-hero-copy">
+          <p className="eyebrow">Observability</p>
+          <h1>Every message traced, alertable, and export-ready.</h1>
+          <p>See message health like a NOC: delivery rates by operator, error taxonomies, fraud signals, and SLA dashboards that mirror your runbooks.</p>
+        </div>
+        <PageHeroVisual
+          image="/assets/hero.png"
+          alt="Observability dashboard illustration"
+          badge="Live signals"
+          statA={{ value: '120+', label: 'signals' }}
+          statB={{ value: '−55%', label: 'MTTR' }}
+        />
       </section>
 
       <section className="observability-grid">

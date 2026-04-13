@@ -1,11 +1,13 @@
 import React from 'react';
+import ChannelBrandLogo from './ChannelBranding';
+import PageHeroVisual from './PageHeroVisual';
 
 const channels = [
-  { name: 'SMS', color: 'var(--accent)', description: 'DLT-compliant messaging with smart throttling and delivery receipts.', icon: 'https://raw.githubusercontent.com/ravireddy07/cpaas-logo/main/icons/message.svg', coords: { top: '10%', left: '50%' } },
-  { name: 'WhatsApp', color: '#25D366', description: 'Green-check onboarding, flows, and commerce-ready templates.', icon: 'https://raw.githubusercontent.com/ravireddy07/cpaas-logo/main/icons/whatsapp.svg', coords: { top: '30%', left: '80%' } },
-  { name: 'Voice', color: '#7C3AED', description: 'Programmable IVR, SIP trunking, recording, and call masking.', icon: 'https://raw.githubusercontent.com/ravireddy07/cpaas-logo/main/icons/phone.svg', coords: { top: '70%', left: '65%' } },
-  { name: 'Email', color: '#F97316', description: 'Branded transactional email with adaptive templates and tracking.', icon: 'https://raw.githubusercontent.com/ravireddy07/cpaas-logo/main/icons/mail.svg', coords: { top: '50%', left: '25%' } },
-  { name: 'RCS', color: '#8B5CF6', description: 'Rich cards, suggested actions, and brand verification out of the box.', icon: 'https://raw.githubusercontent.com/ravireddy07/cpaas-logo/main/icons/message.svg', coords: { top: '20%', left: '25%' } },
+  { key: 'sms', name: 'Bulk SMS', color: 'var(--accent)', description: 'Tier-1 direct routes for mission-critical OTPs and mass promotional alerts.', coords: { top: '10%', left: '50%' } },
+  { key: 'whatsapp', name: 'WhatsApp', color: '#25D366', description: 'Official Meta BSP integration for high-volume enterprise notification flows.', coords: { top: '30%', left: '80%' } },
+  { key: 'voice', name: 'Bulk Voice', color: '#7C3AED', description: 'Automated global alerts, IVR, and SIP trunking for massive scale outreach.', coords: { top: '70%', left: '65%' } },
+  { key: 'email', name: 'Bulk Email', color: '#F97316', description: 'High-reputation SMTP relay and API for transactional and marketing volumes.', coords: { top: '50%', left: '25%' } },
+  { key: 'rcs', name: 'RCS Business', color: '#8B5CF6', description: 'Rich cards, verified branding, and actionable messaging for mass Android campaigns.', coords: { top: '20%', left: '25%' } },
 ];
 
 const flows = [
@@ -28,14 +30,23 @@ const channelCaseStudies = [
 function ChannelsPage() {
   return (
     <div className="page-content channels-page">
-      <section className="page-hero">
-        <p className="eyebrow">Channels</p>
-        <h1>Coordinate every conversation from one mission control.</h1>
-        <p>Orchestrate SMS, WhatsApp, Voice, RCS, and Email using a single API with shared routing, analytics, and governance.</p>
-        <div className="page-hero-actions">
-          <button className="btn-primary">View channel docs</button>
-          <button className="btn-secondary">Get routing audit</button>
+      <section className="page-hero page-hero-split">
+        <div className="page-hero-copy">
+          <p className="eyebrow">Channels</p>
+          <h1>Coordinate every conversation from one mission control.</h1>
+          <p>Orchestrate SMS, WhatsApp, Voice, RCS, and Email using a single API with shared routing, analytics, and governance.</p>
+          <div className="page-hero-actions">
+            <button className="btn-primary">View channel docs</button>
+            <button className="btn-secondary">Get routing audit</button>
+          </div>
         </div>
+        <PageHeroVisual
+          image="/assets/features.png"
+          alt="Channel orchestration illustration"
+          badge="All channels"
+          statA={{ value: '5', label: 'core channels' }}
+          statB={{ value: '190+', label: 'countries' }}
+        />
       </section>
 
       <section className="channel-radar">
@@ -48,7 +59,7 @@ function ChannelsPage() {
                 className="radar-node"
                 style={{ borderColor: channel.color, top: channel.coords.top, left: channel.coords.left }}
               >
-                <img src={channel.icon} alt={channel.name} />
+                <ChannelBrandLogo brandKey={channel.key} size={22} className="channel-node-logo" />
               </div>
             ))}
           </div>
@@ -58,6 +69,7 @@ function ChannelsPage() {
             <div key={channel.name} className="radar-legend-card">
               <div className="legend-head">
                 <span className="pill" style={{ background: channel.color }}>{channel.name}</span>
+                <ChannelBrandLogo brandKey={channel.key} size={20} className="legend-brand-logo" />
               </div>
               <p>{channel.description}</p>
             </div>

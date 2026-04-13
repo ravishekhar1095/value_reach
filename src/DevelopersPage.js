@@ -1,4 +1,5 @@
 import React from 'react';
+import PageHeroVisual from './PageHeroVisual';
 
 const sdkStacks = [
   { name: 'Node & TS', description: 'Typed client, retries, webhook signature helpers.', tag: 'npm i @valuereach/sdk' },
@@ -28,14 +29,23 @@ const resourceLinks = [
 function DevelopersPage() {
   return (
     <div className="page-content developers-page">
-      <section className="page-hero">
-        <p className="eyebrow">Built for builders</p>
-        <h1>Ship omnichannel journeys with fewer lines of code.</h1>
-        <p>Modern SDKs, typed contracts, and tooling that plugs into your CI/CD. Start in the sandbox, promote to production with approvals, and trace every message down to the carrier hop.</p>
-        <div className="page-hero-actions">
-          <button className="btn-primary">Open API reference</button>
-          <button className="btn-secondary">Download SDKs</button>
+      <section className="page-hero page-hero-split">
+        <div className="page-hero-copy">
+          <p className="eyebrow">Built for builders</p>
+          <h1>Ship omnichannel journeys with fewer lines of code.</h1>
+          <p>Modern SDKs, typed contracts, and tooling that plugs into your CI/CD. Start in the sandbox, promote to production with approvals, and trace every message down to the carrier hop.</p>
+          <div className="page-hero-actions">
+            <button className="btn-primary">Open API reference</button>
+            <button className="btn-secondary">Download SDKs</button>
+          </div>
         </div>
+        <PageHeroVisual
+          image="/assets/features.png"
+          alt="Developer tools illustration"
+          badge="SDK ready"
+          statA={{ value: '8 mins', label: 'to first send' }}
+          statB={{ value: '130+', label: 'recipes' }}
+        />
       </section>
 
       <section className="stat-grid">

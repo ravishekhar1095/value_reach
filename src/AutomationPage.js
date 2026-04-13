@@ -1,4 +1,5 @@
 import React from 'react';
+import PageHeroVisual from './PageHeroVisual';
 
 const automationLayers = [
   {
@@ -49,14 +50,23 @@ const automationPlaybooks = [
 function AutomationPage() {
   return (
     <div className="page-content automation-page">
-      <section className="page-hero">
-        <p className="eyebrow">Automation</p>
-        <h1>Blueprint journeys, enforce guardrails, and launch faster.</h1>
-        <p>Enable marketing, product, and ops to collaborate in one canvas with approvals, testing, and governance built in.</p>
-        <div className="page-hero-actions">
-          <button className="btn-primary">Book a canvas demo</button>
-          <button className="btn-secondary">Download playbooks</button>
+      <section className="page-hero page-hero-split">
+        <div className="page-hero-copy">
+          <p className="eyebrow">Automation</p>
+          <h1>Blueprint journeys, enforce guardrails, and launch faster.</h1>
+          <p>Enable marketing, product, and ops to collaborate in one canvas with approvals, testing, and governance built in.</p>
+          <div className="page-hero-actions">
+            <button className="btn-primary">Book a canvas demo</button>
+            <button className="btn-secondary">Download playbooks</button>
+          </div>
         </div>
+        <PageHeroVisual
+          image="/assets/features.png"
+          alt="Automation canvas illustration"
+          badge="Journey canvas"
+          statA={{ value: '480', label: 'templates / week' }}
+          statB={{ value: '14d', label: 'migration time' }}
+        />
       </section>
 
       <section className="automation-layers">
