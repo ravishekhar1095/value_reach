@@ -97,8 +97,6 @@ function HomePage() {
           <div className="hero-content-left">
             <div className="badge-pill hero-eyebrow">🚀 The Future of CPaaS</div>
             <h1 className="hero-title">
-              One control plane for
-              <br />
               <span className="home-text-reach">Reach</span>{' '}
               <span className="home-text-connect">Connect</span>{' '}
               <span className="home-text-interact">Interact</span>
