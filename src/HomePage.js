@@ -2,7 +2,8 @@ import React, { useState, useEffect } from 'react';
 import { useInView } from 'react-intersection-observer';
 import ContactModal from './ContactModal';
 import ChannelBrandLogo from './ChannelBranding';
-import { GlobeWeather } from './components/ui/cobe-globe-weather';
+import TestimonialCarousel from './components/ui/profile-card-testimonial-carousel';
+import { GlobeCdn } from './components/ui/cobe-globe-cdn';
 
 const useCountUp = (end, duration = 1500) => {
   const [count, setCount] = useState(0);
@@ -31,12 +32,6 @@ const useCountUp = (end, duration = 1500) => {
 function HomePage() {
   const [showContact, setShowContact] = useState(false);
   const heroHighlights = ['Carrier failover', 'AI-assisted routing', 'Audit-ready logs'];
-  const heroSignals = [
-    { value: '190+', label: 'Countries live' },
-    { value: '700+', label: 'Carrier routes' },
-    { value: '24/7', label: 'NOC coverage' },
-    { value: '99.99%', label: 'Routing SLA' },
-  ];
   const trustStats = [
     { value: '12K+', label: 'Teams orchestrating journeys', caption: 'Across 90+ countries' },
     { value: '4.9/5', label: 'Average satisfaction on G2', caption: 'Based on verified buyers' },
@@ -138,26 +133,18 @@ function HomePage() {
               </div>
             </div>
           </div>
-          <div className="hero-visual-right">
-            <div className="hero-stack-panel hero-globe-panel">
-              <div className="hero-panel-chip">Global command view</div>
-              <GlobeWeather className="hero-globe" />
-              <div className="hero-data-grid">
-                {heroSignals.map((signal) => (
-                  <div key={signal.label} className="hero-data-card">
-                    <strong>{signal.value}</strong>
-                    <span>{signal.label}</span>
-                  </div>
-                ))}
+          <div className="hero-visual-right hero-cdn-panel">
+            <div className="hero-cdn-label">Real-time request flow</div>
+            <GlobeCdn className="hero-cdn-globe" />
+            <div className="hero-cdn-metrics">
+              <div>
+                <strong>10</strong>
+                <span>Edge regions</span>
               </div>
-            </div>
-            <div className="floating-card card-1">
-              <span>Message Sent</span>
-              <span className="status-dot success"></span>
-            </div>
-            <div className="floating-card card-2">
-              <span>API Connected</span>
-              <span className="status-dot active"></span>
+              <div>
+                <strong>320k</strong>
+                <span>Req/min</span>
+              </div>
             </div>
           </div>
         </div>
@@ -302,44 +289,15 @@ function HomePage() {
         </div>
       </section>
 
-      <section className="reliability-human-section">
-        <div className="reliability-container">
-          <div className="reliability-visual">
-            <img src={`${process.env.PUBLIC_URL || ''}/assets/noc-team.png`} alt="ValueReach NOC Team" className="noc-image" />
-            <div className="reliability-overlay-card">
-              <div className="status-pulse"></div>
-              <span>Global NOC: Active</span>
-            </div>
-          </div>
-          <div className="reliability-content">
-            <p className="eyebrow">Human-Centric Reliability</p>
-            <h2>Always-on expertise for your global scale.</h2>
-            <p>
-              Technology is only as good as the people behind it. Our Network Operations Center (NOC) is staffed 24/7/365 by routing experts who proactively monitor carrier performance and optimize paths in real-time.
-            </p>
-            <ul className="reliability-list">
-              <li>
-                <strong>Proactive Mitigation:</strong> We detect and route around outages before they impact your users.
-              </li>
-              <li>
-                <strong>Direct Carrier Relations:</strong> No middle-men. We talk directly to telcos across 190+ countries.
-              </li>
-              <li>
-                <strong>Enterprise Concierge:</strong> Every customer gets a dedicated support channel with sub-minute responses.
-              </li>
-            </ul>
-            <div className="reliability-stats">
-              <div className="rel-stat">
-                <strong>&lt;15m</strong>
-                <span>Avg. Response Time</span>
-              </div>
-              <div className="rel-stat">
-                <strong>98.4%</strong>
-                <span>Direct Routing</span>
-              </div>
-            </div>
-          </div>
+      <section className="testimonial-section">
+        <div className="testimonial-section-head">
+          <p className="eyebrow">Customer voices</p>
+          <h2>Teams across India trust the platform to keep comms steady.</h2>
+          <p className="subtitle">
+            Real stories from Indian product, engineering, and data leaders using one system for outreach, reliability, and visibility.
+          </p>
         </div>
+        <TestimonialCarousel />
       </section>
 
       <section className="cta-section">
