@@ -1,0 +1,20 @@
+<svg width="72" height="72" viewBox="0 0 72 72" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="vrMarkGradient" x1="7" y1="4" x2="65" y2="68" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#5BE7FF" />
+      <stop offset="1" stop-color="#3B3BFF" />
+    </linearGradient>
+    <linearGradient id="vrStrokeGradient" x1="18" y1="20" x2="55" y2="58" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#FFFFFF" stop-opacity="0.85" />
+      <stop offset="1" stop-color="#B8CCFF" stop-opacity="0.95" />
+    </linearGradient>
+    <clipPath id="vrClip">
+      <rect x="6" y="6" width="60" height="60" rx="16" />
+    </clipPath>
+  </defs>
+  <g clip-path="url(#vrClip)">
+    <rect x="6" y="6" width="60" height="60" rx="16" fill="url(#vrMarkGradient)" />
+    <path d="M18 18L30.5 46.5C34.5 55 37.5 55 41.5 46.5L54 18" stroke="url(#vrStrokeGradient)" stroke-width="6" stroke-linecap="round" stroke-linejoin="round" />
+    <path d="M40 35L50 54C52 58 56 58 58 54" stroke="url(#vrStrokeGradient)" stroke-width="6" stroke-linecap="round" />
+  </g>
+</svg>
