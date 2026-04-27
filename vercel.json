@@ -1,14 +1,7 @@
 {
   "version": 2,
-  "builds": [
-    {
-      "src": "value_reach/package.json",
-      "use": "@vercel/static-build",
-      "config": {
-        "distDir": "build"
-      }
-    }
-  ],
+  "buildCommand": "cd value_reach && npm run build",
+  "outputDirectory": "value_reach/build",
   "routes": [
     {
       "handle": "filesystem"
