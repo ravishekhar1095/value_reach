@@ -22,7 +22,7 @@ const touchpoints = [
 
 function ContactPage() {
   const [submitted, setSubmitted] = useState(false);
-  const [form, setForm] = useState({ name: '', email: '', company: '', message: '', consent: false });
+  const [form, setForm] = useState({ name: '', email: '', phone: '', company: '', message: '', consent: false });
 
   function handleChange(e) {
     const { name, value, type, checked } = e.target;
@@ -36,7 +36,7 @@ function ContactPage() {
     setSubmitted(true);
     setTimeout(() => {
       setSubmitted(false);
-      setForm({ name: '', email: '', company: '', message: '', consent: false });
+      setForm({ name: '', email: '', phone: '', company: '', message: '', consent: false });
     }, 1200);
   }
 
@@ -278,6 +278,18 @@ function ContactPage() {
                 <div className="cp-group">
                   <label className="cp-label">Email *</label>
                   <input className="cp-input" name="email" type="email" value={form.email} onChange={handleChange} required />
+                </div>
+
+                <div className="cp-group">
+                  <label className="cp-label">Contact Number</label>
+                  <input
+                    className="cp-input"
+                    name="phone"
+                    type="tel"
+                    value={form.phone}
+                    onChange={handleChange}
+                    placeholder="Enter your contact number"
+                  />
                 </div>
 
                 <div className="cp-group">

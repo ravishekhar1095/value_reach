@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 
 function ContactModal({ onClose }) {
   const [submitted, setSubmitted] = useState(false);
-  const [form, setForm] = useState({ name: '', email: '', message: '', consent: false });
+  const [form, setForm] = useState({ name: '', email: '', phone: '', message: '', consent: false });
 
   function handleChange(e) {
     const { name, value, type, checked } = e.target;
@@ -17,7 +17,7 @@ function ContactModal({ onClose }) {
     setTimeout(() => {
       setSubmitted(false);
       onClose();
-      setForm({ name: '', email: '', message: '', consent: false });
+      setForm({ name: '', email: '', phone: '', message: '', consent: false });
     }, 2000);
   }
 
@@ -299,6 +299,18 @@ function ContactModal({ onClose }) {
                 <div className="cm-group">
                   <label className="cm-label">Email</label>
                   <input className="cm-input" name="email" type="email" value={form.email} onChange={handleChange} required />
+                </div>
+
+                <div className="cm-group">
+                  <label className="cm-label">Contact Number</label>
+                  <input
+                    className="cm-input"
+                    name="phone"
+                    type="tel"
+                    value={form.phone}
+                    onChange={handleChange}
+                    placeholder="Enter your contact number"
+                  />
                 </div>
 
                 <div className="cm-group">
