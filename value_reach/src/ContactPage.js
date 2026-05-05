@@ -281,14 +281,14 @@ function ContactPage() {
                 </div>
 
                 <div className="cp-group">
-                  <label className="cp-label">Contact Number</label>
+                  <label className="cp-label">Phone Number</label>
                   <input
                     className="cp-input"
                     name="phone"
                     type="tel"
                     value={form.phone}
                     onChange={handleChange}
-                    placeholder="Enter your contact number"
+                    placeholder="Enter your phone number"
                   />
                 </div>
 

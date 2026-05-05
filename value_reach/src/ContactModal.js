@@ -302,14 +302,14 @@ function ContactModal({ onClose }) {
                 </div>
 
                 <div className="cm-group">
-                  <label className="cm-label">Contact Number</label>
+                  <label className="cm-label">Phone Number</label>
                   <input
                     className="cm-input"
                     name="phone"
                     type="tel"
                     value={form.phone}
                     onChange={handleChange}
-                    placeholder="Enter your contact number"
+                    placeholder="Enter your phone number"
                   />
                 </div>
 
