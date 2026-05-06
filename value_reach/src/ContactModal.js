@@ -45,11 +45,11 @@ function ContactModal({ onClose }) {
 
         .cm-modal {
           width: 100%;
-          max-width: 440px;
+          max-width: 380px;
           background: linear-gradient(145deg, rgba(255, 255, 255, 0.98), rgba(248, 250, 255, 0.95));
           border: 1px solid rgba(0, 0, 0, 0.06);
           border-radius: 24px;
-          padding: 28px;
+          padding: 20px;
           box-shadow: 0 40px 100px rgba(0, 0, 0, 0.1), inset 0 1px 0 rgba(255, 255, 255, 1);
           color: #0f172a;
           position: relative;
@@ -64,17 +64,17 @@ function ContactModal({ onClose }) {
 
         .cm-close {
           position: absolute;
-          right: 24px;
-          top: 24px;
+          right: 16px;
+          top: 16px;
           background: rgba(0, 0, 0, 0.04);
           border: 1px solid rgba(0, 0, 0, 0.05);
           border-radius: 50%;
-          width: 32px;
-          height: 32px;
+          width: 28px;
+          height: 28px;
           display: flex;
           align-items: center;
           justify-content: center;
-          font-size: 14px;
+          font-size: 12px;
           cursor: pointer;
           color: rgba(0, 0, 0, 0.5);
           transition: all 0.2s;
@@ -87,9 +87,9 @@ function ContactModal({ onClose }) {
         }
 
         .cm-title {
-          font-size: 24px;
+          font-size: 20px;
           font-weight: 700;
-          margin: 0 0 6px 0;
+          margin: 0 0 4px 0;
           background: linear-gradient(135deg, #0f172a, #334155);
           -webkit-background-clip: text;
           -webkit-text-fill-color: transparent;
@@ -97,25 +97,25 @@ function ContactModal({ onClose }) {
 
         .cm-subtitle {
           color: rgba(0, 0, 0, 0.6);
-          font-size: 13px;
-          margin-bottom: 20px;
+          font-size: 12px;
+          margin-bottom: 14px;
           line-height: 1.4;
         }
 
         .cm-form {
           display: flex;
           flex-direction: column;
-          gap: 14px;
+          gap: 11px;
         }
 
         .cm-group {
           display: flex;
           flex-direction: column;
-          gap: 8px;
+          gap: 6px;
         }
 
         .cm-label {
-          font-size: 13px;
+          font-size: 12px;
           font-weight: 600;
           color: rgba(0, 0, 0, 0.65);
           text-transform: uppercase;
@@ -124,12 +124,12 @@ function ContactModal({ onClose }) {
 
         .cm-input {
           width: 100%;
-          padding: 11px 12px;
+          padding: 9px 10px;
           background: rgba(0, 0, 0, 0.02);
           border: 1px solid rgba(0, 0, 0, 0.08);
           border-radius: 12px;
           color: #0f172a;
-          font-size: 14px;
+          font-size: 13px;
           transition: all 0.2s;
           box-sizing: border-box;
         }
@@ -147,15 +147,15 @@ function ContactModal({ onClose }) {
         
         textarea.cm-input {
           resize: vertical;
-          min-height: 80px;
+          min-height: 70px;
         }
 
         .cm-consent-wrap {
           display: flex;
           align-items: flex-start;
-          gap: 10px;
-          margin-top: 4px;
-          padding: 12px;
+          gap: 8px;
+          margin-top: 2px;
+          padding: 10px;
           background: rgba(0, 0, 0, 0.015);
           border: 1px solid rgba(0, 0, 0, 0.04);
           border-radius: 12px;
@@ -170,9 +170,9 @@ function ContactModal({ onClose }) {
         .cm-radio-check {
           appearance: none;
           -webkit-appearance: none;
-          min-width: 20px;
-          width: 20px;
-          height: 20px;
+          min-width: 18px;
+          width: 18px;
+          height: 18px;
           border-radius: 50%;
           border: 2px solid rgba(0, 0, 0, 0.2);
           background: rgba(0, 0, 0, 0.02);
@@ -202,8 +202,8 @@ function ContactModal({ onClose }) {
         }
 
         .cm-consent-text {
-          font-size: 13px;
-          line-height: 1.5;
+          font-size: 12px;
+          line-height: 1.4;
           color: rgba(0, 0, 0, 0.6);
         }
         
@@ -214,19 +214,19 @@ function ContactModal({ onClose }) {
 
         .cm-actions {
           display: flex;
-          gap: 12px;
-          margin-top: 12px;
+          gap: 10px;
+          margin-top: 10px;
         }
 
         .cm-btn-secondary {
           flex: 1;
-          padding: 11px 20px;
+          padding: 9px 16px;
           background: rgba(0, 0, 0, 0.04);
           border: 1px solid rgba(0, 0, 0, 0.05);
           color: #0f172a;
           border-radius: 12px;
           font-weight: 600;
-          font-size: 14px;
+          font-size: 13px;
           cursor: pointer;
           transition: all 0.2s;
         }
@@ -237,13 +237,13 @@ function ContactModal({ onClose }) {
 
         .cm-btn-primary {
           flex: 2;
-          padding: 11px 20px;
+          padding: 9px 16px;
           background: linear-gradient(135deg, #0969da, #58a6ff);
           color: white;
           border: none;
           border-radius: 12px;
           font-weight: 600;
-          font-size: 14px;
+          font-size: 13px;
           cursor: pointer;
           transition: transform 0.2s, box-shadow 0.2s;
           box-shadow: 0 4px 15px rgba(9, 105, 218, 0.2);
