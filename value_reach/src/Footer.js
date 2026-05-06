@@ -68,7 +68,7 @@ function Footer() {
       </div>
 
       <div className="footer-bottom">
-        <p>Copyright © {new Date().getFullYear()} ValueReach All Rights Reserved.</p>
+        <p>Copyright © {new Date().getFullYear()} Valuereach Digital Solutions Private Limited. All Rights Reserved.</p>
         <div className="footer-legal-links">
           <Link to="/legal">Legal</Link>
           <Link to="/legal/privacy-policy">Privacy</Link>
